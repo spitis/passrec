@@ -1,0 +1,26 @@
+<html>
+<head>
+  <style>
+    p {
+      max-width: 600px;
+    }
+    body {
+      padding: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h4>Proof of concept for recognizing the human entering the password</h4>
+  <p>Idea is to see if it can learn the particular way you type your password use a neural network. In theory, it would then differentiate between the true "owner" of the password and a false enteror who happened to steal the password. Of course, a lot more data would be necessary to get better results, and it's unclear that there is a practical function to use here (false negatives are annoying, and false positives make this meaningless... so it would have to be super accurate, but there is likely a lot of noise here even with large sample sizes).</p>
+  <p>That said, try training a password like "supreme" but think in your head "sup-re-me" while you train the neural network. My friends were unable to crack it, even though it was trained on but 15 samples, and I could reliably enter the password to get in.</p>
+  <p id="instruction">Type your password a <span id="train-count">15</span> more times to train your password:</p>
+  <form id="pw-form">
+    <input type="password" id="pw-input"> <span id="debug"></span>
+  </form>
+  <script src="jquery-2.1.4.min.js"></script>
+  <script src="numeric-1.2.6.min.js"></script>
+  <script src="basic_NN.js"></script>
+  <script src="passrec.js"></script>
+</body>
+
+</html>
